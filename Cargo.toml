@@ -1,0 +1,16 @@
+[package]
+name = "zed_postgres_lsp"
+version = "0.0.1"
+edition = "2021"
+publish = false
+license = "MIT"
+
+# [lints]
+# workspace = true
+
+[lib]
+path = "src/postgres_lsp.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.3.0"

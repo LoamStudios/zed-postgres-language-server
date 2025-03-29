@@ -1,0 +1,11 @@
+id = "postgres-lsp"
+name = "Postgres LSP"
+version = "0.0.1"
+schema_version = 1
+authors = ["jeffreyguenther"]
+description = "Postgres LSP"
+repository = "https://github.com/LoamStudios/zed-postgres-lsp"
+
+[language_servers.postgresql]
+name = "Postgresql LSP"
+languages = ["SQL"]
