@@ -1,5 +1,5 @@
 [package]
-name = "zed_postgres_lsp"
+name = "zed_postgres_language_server"
 version = "0.0.1"
 edition = "2021"
 publish = false
@@ -9,7 +9,7 @@ license = "MIT"
 # workspace = true
 
 [lib]
-path = "src/postgres_lsp.rs"
+path = "src/postgres_language_server.rs"
 crate-type = ["cdylib"]
 
 [dependencies]

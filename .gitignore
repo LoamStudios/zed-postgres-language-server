@@ -18,3 +18,7 @@ target/
 
 grammars/
 extension.wasm
+
+# Neve commit test files
+postgrestools.jsonc
+test.sql

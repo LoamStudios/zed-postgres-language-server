@@ -1,11 +1,11 @@
-id = "postgres-lsp"
-name = "Postgres LSP"
+id = "postgres-language-server"
+name = "Postgres Language Server"
 version = "0.0.1"
 schema_version = 1
 authors = ["jeffreyguenther"]
-description = "Postgres LSP"
-repository = "https://github.com/LoamStudios/zed-postgres-lsp"
+description = "Postgres Language Server"
+repository = "https://github.com/LoamStudios/zed-postgres-language-server"
 
-[language_servers.postgresql]
-name = "Postgresql LSP"
+[language_servers.postgres-language-server]
+name = "Postgres Language Server"
 languages = ["SQL"]
