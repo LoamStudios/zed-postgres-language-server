@@ -2,11 +2,11 @@ use std::fs;
 use zed::settings::LspSettings;
 use zed_extension_api::{self as zed, serde_json, LanguageServerId, Result};
 
-struct PostgresLspExtension {
+struct PostgresLanguageServerExtension {
     cached_binary_path: Option<String>,
 }
 
-impl PostgresLspExtension {
+impl PostgresLanguageServerExtension {
     fn language_server_binary_path(
         &mut self,
         language_server_id: &LanguageServerId,
@@ -89,7 +89,7 @@ impl PostgresLspExtension {
     }
 }
 
-impl zed::Extension for PostgresLspExtension {
+impl zed::Extension for PostgresLanguageServerExtension {
     fn new() -> Self {
         Self {
             cached_binary_path: None,
@@ -119,9 +119,9 @@ impl zed::Extension for PostgresLspExtension {
             .unwrap_or_default();
 
         Ok(Some(serde_json::json!({
-            "postgres_lsp": settings
+            "postgres-language-server": settings
         })))
     }
 }
 
-zed::register_extension!(PostgresLspExtension);
+zed::register_extension!(PostgresLanguageServerExtension);

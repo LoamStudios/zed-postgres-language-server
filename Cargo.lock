@@ -322,7 +322,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "zed_postgres_lsp"
+name = "zed_postgres_language_server"
 version = "0.0.1"
 dependencies = [
  "zed_extension_api",
