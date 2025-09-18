@@ -45,7 +45,7 @@ impl PostgresLanguageServerExtension {
             os = match platform {
                 zed::Os::Mac => "apple-darwin",
                 zed::Os::Linux => "unknown-linux-gnu",
-                zed::Os::Windows => "ps-windows-msvc",
+                zed::Os::Windows => "pc-windows-msvc",
             }
         );
 
