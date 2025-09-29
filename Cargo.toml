@@ -1,6 +1,6 @@
 [package]
 name = "zed_postgres_language_server"
-version = "0.0.1"
+version = "0.1.0"
 edition = "2021"
 publish = false
 license = "MIT"
@@ -13,4 +13,4 @@ path = "src/postgres_language_server.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-zed_extension_api = "0.3.0"
+zed_extension_api = "0.7.0"

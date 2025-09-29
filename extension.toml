@@ -1,6 +1,6 @@
 id = "postgres-language-server"
 name = "Postgres Language Server"
-version = "0.0.1"
+version = "0.1.0"
 schema_version = 1
 authors = ["jeffreyguenther"]
 description = "Postgres Language Server"
