@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: huacnlee/zed-extension-action@v1
         with:
-          extension-name: postgres-lsp
+          extension-name: postgres-language-server
           # extension-path: extensions/${{ extension-name }}
           push-to: LoamStudios/zed-extensions
         env:
