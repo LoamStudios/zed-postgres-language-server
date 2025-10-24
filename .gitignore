@@ -22,3 +22,4 @@ extension.wasm
 # Neve commit test files
 postgrestools.jsonc
 test.sql
+.claude-session-id
