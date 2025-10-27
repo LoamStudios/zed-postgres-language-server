@@ -12,12 +12,12 @@ impl PostgresLanguageServerExtension {
         language_server_id: &LanguageServerId,
         worktree: &zed::Worktree,
     ) -> Result<String> {
-        if let Some(path) = worktree.which("postgrestools") {
+        if let Some(path) = worktree.which("postgres-language-server") {
             return Ok(path);
         }
 
         if let Some(path) = &self.cached_binary_path {
-            if fs::metadata(path).map_or(false, |stat| stat.is_file()) {
+            if fs::metadata(path).is_ok_and(|stat| stat.is_file()) {
                 return Ok(path.clone());
             }
         }
@@ -36,7 +36,7 @@ impl PostgresLanguageServerExtension {
 
         let (platform, arch) = zed::current_platform();
         let asset_name = format!(
-            "postgrestools_{arch}-{os}",
+            "postgres-language-server_{arch}-{os}",
             arch = match arch {
                 zed::Architecture::Aarch64 => "aarch64",
                 zed::Architecture::X86 => "x86",
@@ -55,12 +55,12 @@ impl PostgresLanguageServerExtension {
             .find(|asset| asset.name == asset_name)
             .ok_or_else(|| format!("no asset found matching {:?}", asset_name))?;
 
-        let version_dir = format!("postgrestools-{}", release.version);
+        let version_dir = format!("postgres-language-server-{}", release.version);
         fs::create_dir_all(&version_dir)
             .map_err(|err| format!("failed to create directory '{version_dir}': {err}"))?;
-        let binary_path = format!("{version_dir}/postgrestools");
+        let binary_path = format!("{version_dir}/postgres-language-server");
 
-        if !fs::metadata(&binary_path).map_or(false, |stat| stat.is_file()) {
+        if !fs::metadata(&binary_path).is_ok_and(|stat| stat.is_file()) {
             zed::set_language_server_installation_status(
                 language_server_id,
                 &zed::LanguageServerInstallationStatus::Downloading,
