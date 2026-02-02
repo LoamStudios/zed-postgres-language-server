@@ -113,14 +113,12 @@ impl zed::Extension for PostgresLanguageServerExtension {
         _language_server_id: &zed::LanguageServerId,
         worktree: &zed::Worktree,
     ) -> Result<Option<serde_json::Value>> {
-        let settings = LspSettings::for_worktree("postgres_lsp", worktree)
+        let settings = LspSettings::for_worktree("postgres-language-server", worktree)
             .ok()
             .and_then(|lsp_settings| lsp_settings.settings.clone())
             .unwrap_or_default();
 
-        Ok(Some(serde_json::json!({
-            "postgres-language-server": settings
-        })))
+        Ok(Some(settings))
     }
 }
 
