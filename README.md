@@ -6,7 +6,7 @@ This extension integrates the [Postgresql Language Server](https://github.com/su
 
 ## Project Setup
 
-The language server will not provide diagnostics, autocomplete, or hover until it finds a configuration file. **You must create a `postgres-language-server.jsonc` file at the root of your project** and fill in your database connection details.
+Syntax diagnostics and linting work without any configuration. Autocomplete, hover, and type checking need a database connection, which you configure in a `postgres-language-server.jsonc` file at the root of your project.
 
 ### 1. Create `postgres-language-server.jsonc` at the project root
 
