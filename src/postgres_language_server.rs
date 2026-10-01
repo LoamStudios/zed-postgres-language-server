@@ -45,7 +45,7 @@ impl PostgresLanguageServerExtension {
             os = match platform {
                 zed::Os::Mac => "apple-darwin",
                 zed::Os::Linux => "unknown-linux-gnu",
-                zed::Os::Windows => "pc-windows-msvc",
+                zed::Os::Windows => "pc-windows-msvc.exe",
             }
         );
 
@@ -58,7 +58,13 @@ impl PostgresLanguageServerExtension {
         let version_dir = format!("postgres-language-server-{}", release.version);
         fs::create_dir_all(&version_dir)
             .map_err(|err| format!("failed to create directory '{version_dir}': {err}"))?;
-        let binary_path = format!("{version_dir}/postgres-language-server");
+        let binary_path = format!(
+            "{version_dir}/postgres-language-server{suffix}",
+            suffix = match platform {
+                zed::Os::Windows => ".exe",
+                _ => "",
+            }
+        );
 
         if !fs::metadata(&binary_path).is_ok_and(|stat| stat.is_file()) {
             zed::set_language_server_installation_status(
